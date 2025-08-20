@@ -1,0 +1,184 @@
+@import 'tailwindcss';
+
+@plugin 'flowbite/plugin';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source './src/**/*.{html,js,svelte,ts,md}';
+@source '../node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}';
+@source '../node_modules/flowbite-svelte-icons/**/*.{html,js,svelte,ts}';
+
+@theme {
+  --z-index-100: 100;
+
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+
+  --color-secondary-50: #f0f9ff;
+  --color-secondary-100: #e0f2fe;
+  --color-secondary-200: #bae6fd;
+  --color-secondary-300: #7dd3fc;
+  --color-secondary-400: #38bdf8;
+  --color-secondary-500: #0ea5e9;
+  --color-secondary-600: #0284c7;
+  --color-secondary-700: #0369a1;
+  --color-secondary-800: #075985;
+  --color-secondary-900: #0c4a6e;
+
+  --text-sm: 14px;
+  --text-xm: 17px;
+}
+
+@layer base {
+  html {
+    font-family: Poppins, sans-serif;
+    font-size: 17.8px;
+  }
+
+  /* Dark mode base styles */
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+  }
+
+  .dark {
+    --bg-primary: #1f2937;
+    --bg-secondary: #111827;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --border-color: #374151;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number'] {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield !important;
+  }
+  button,
+  [role='button'] {
+    cursor: pointer;
+  }
+  hr {
+    color: #e0e0e7;
+  }
+
+  .dark hr {
+    color: #374151;
+  }
+
+  .dark tbody tr:hover {
+    background: #374151;
+  }
+
+  /* Dark mode table styles */
+  .dark table {
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    color: var(--text-primary);
+  }
+
+  .dark th {
+    background-color: #374151;
+    color: #f9fafb;
+    border-color: #4b5563;
+  }
+
+  .dark td {
+    border-color: #4b5563;
+    color: var(--text-primary);
+  }
+
+  /* Dark mode form styles */
+  .dark input,
+  .dark select,
+  .dark textarea {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+
+  .dark input:focus,
+  .dark select:focus,
+  .dark textarea:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+  }
+
+  /* Dark mode card styles */
+  .dark .bg-white {
+    background-color: var(--bg-secondary) !important;
+  }
+
+  .dark .shadow {
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.3),
+      0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  /* Dark mode text colors */
+  .dark .text-gray-900 {
+    color: #f9fafb !important;
+  }
+
+  .dark .text-gray-700 {
+    color: #d1d5db !important;
+  }
+
+  .dark .text-gray-600 {
+    color: #9ca3af !important;
+  }
+
+  .dark .text-gray-500 {
+    color: #6b7280 !important;
+  }
+
+  @media (min-width: 300px) {
+    .inputsearch {
+      min-width: 100px;
+    }
+  }
+  @media (min-width: 1000px) {
+    .inputsearch {
+      min-width: 300px;
+    }
+  }
+  @media (min-width: 300px) {
+    .mt-screenadjust {
+      margin-top: 5px;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .mt-screenadjust {
+      margin-top: 0px;
+    }
+  }
+
+  .box {
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 0 0 0.5rem 0.5rem;
+    border-top: 0;
+  }
+}
