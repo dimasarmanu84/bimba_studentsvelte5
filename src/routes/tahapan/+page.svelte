@@ -9,17 +9,22 @@
   import { Button, Modal } from 'flowbite-svelte';
   import { onMount } from 'svelte';
   import type { PageData } from './$types';
-  // Import state rune
-  let { data } = $props<{ data: PageData }>();
+  import Home from '$lib/component/Home.svelte'
+    import Tagihan from '$lib/component/siswa/Tagihan.svelte'
 
-  let openProfile = $state<boolean>(false); // Convert to state rune
-  let openCara = $state<boolean>(false); // Convert to state rune
+  interface Props {
+    data: PageData
+  }
+
+  let { data }: Props = $props();
+
+  let openProfile = $state<boolean>(false);
+  let openCara = $state<boolean>(false);
 
   onMount(async () => {
     switch (data?.studentdata?.registrationstep_id) {
       case 1:
         if (openCara) {
-          // Access state rune value
           document.body.style.overflow = 'hidden';
         }
         break;
@@ -33,19 +38,48 @@
   });
 
   function closeModal() {
-    openCara = true; // Use set method for state rune
+    openCara = true;
     document.body.style.overflow = 'auto';
+  }
+
+  let selected = $state<any>('home');
+
+  function toggleDiv(item: any) {
+    if (selected === item) {
+      selected = null;
+    } else {
+      selected = item;
+    }
+  }
+
+  function onBottomNavClick(e: any): void {
+    console.log(e.param);
+    selected = e.param;
+    openProfile = false;
+
+    switch (selected) {
+      case 'tagihan':
+        selected = 'tagihan';
+        break;
+      case 'logout':
+        document.cookie = 'sessionid=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+        goto('/logout');
+        break;
+    }
   }
 </script>
 
 <Header {data}></Header>
 <!-- Step -->
-<div class="relative z-20 -mt-8 px-4">
+
+
+{#if selected === 'home'}
+<div class="relative z-20 -mt-8 px-4 ">
   <br />
   <!-- <div class="flex w-full items-center justify-center pt-10 max-[600px]:pt-[50px]">
     <img src="/images/bismillah-w.png" style="width: 250px;" alt="Bismillah" class="" />
   </div> -->
-  <div class="flex w-full items-center justify-center pt-10 text-center">
+  <div class="flex w-full items-center justify-center pt-10 text-center ">
     <button class="flex"><h1 class="w-full text-xl font-semibold text-white">PENDAFTARAN</h1></button>
   </div>
   <div class="flex w-full items-center justify-center p-3 pt-5 text-center">
@@ -53,7 +87,7 @@
   </div>
   <br />
   <!-- Registration Steps - Unique Cards -->
-  <div class="space-y-6 pb-24">
+  <div class="space-y-6 pb-24 ">
     <!-- 1. Registration Steps -->
     <div class="glass-card card-tilt relative overflow-hidden rounded-3xl">
       <div class="relative px-6 py-2 pt-4">
@@ -132,30 +166,7 @@
         {/if}
       </div>
     </div>
-    <!-- 4. Kemutusan Steps -->
-    <div class="glass-card card-tilt relative overflow-hidden rounded-3xl">
-      <div class="blob-bg absolute top-0 right-0 h-32 w-32 opacity-10"></div>
-      <div class="relative p-6">
-        <div class="flex items-start gap-x-6">
-          <div class="hexagon {data?.studentdata?.registrationstep_id >= 4 ? 'bg-gradient-to-br from-green-400 to-green-600' : 'bg-red-200'} flex flex-shrink-0 items-center justify-center">
-            <div class="text-center text-white">
-              <div class="text-lg font-bold">4</div>
-            </div>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="mb-3 flex items-start justify-between">
-              <div>
-                <h3 class="mb-2 text-lg font-bold text-gray-800">Surat Keputusan Dan Biaya Santri Baru {data?.studentdata?.period_year}</h3>
-                <p class="text-sm text-gray-600">Sekretariat Penerimaan Santri Baru</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {#if data?.studentdata?.registrationstep_id === 4}
-          <Step4 {data} />
-        {/if}
-      </div>
-    </div>
+   
     <!-- 5. Dokumen Steps -->
     <div class="glass-card card-tilt relative overflow-hidden rounded-3xl">
       <div class="blob-bg absolute top-0 right-0 h-32 w-32 opacity-10"></div>
@@ -187,34 +198,25 @@
         </div>
       </div>
     </div>
-    <!-- 6. Ujian Steps -->
-    <div class="glass-card card-tilt relative overflow-hidden rounded-3xl">
-      <div class="blob-bg absolute top-0 right-0 h-32 w-32 opacity-10"></div>
-      <div class="relative p-6">
-        <div class="flex items-start gap-x-6">
-          <div class="hexagon {data?.studentdata?.registrationstep_id >= 6 ? 'bg-gradient-to-br from-green-400 to-green-600' : 'bg-red-200'} flex flex-shrink-0 items-center justify-center">
-            <div class="text-center text-white">
-              <div class="text-lg font-bold">6</div>
-            </div>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="mb-3 flex items-start justify-between">
-              <div>
-                <h3 class="mb-2 text-lg font-bold text-gray-800">Informasi Siswa Baru</h3>
-                <p class="text-sm text-gray-600">Informasi mengenai Siswa baru</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {#if data?.studentdata?.registrationstep_id === 6}
-          <Step6 {data} />
-        {/if}
-      </div>
-    </div>
+    
   </div>
+
 </div>
+{/if}
+
+{#if selected === 'tagihan'}
+<div class="relative z-20 mt-6 px-4">
+
+  <div class="flex w-full items-center justify-center pt-6 text-center ">
+    <button class="flex"><h1 class="w-full text-xl font-semibold text-white">INFORMASI TAGIHAN</h1></button>
+  </div>
+  
+    <Tagihan pageData={data.useraccess} formData={data.studentdata}></Tagihan>
+</div>
+{/if}
 <!-- Floating Bottom Navigation -->
-<!-- <BottomNav {data}></BottomNav> -->
+<BottomNav onbottomnavclick={onBottomNavClick} ></BottomNav>
+
 <Modal title="Persyaratan menjadi Santri {data?.useraccess?.institution_name}" bind:open={openCara} autoclose={false} class="relative w-full max-w-[1000px]">
   <!-- Modal body -->
   <div class="grid grid-cols-1 gap-x-6 gap-y-2">

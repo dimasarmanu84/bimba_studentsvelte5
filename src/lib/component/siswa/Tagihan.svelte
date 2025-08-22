@@ -77,7 +77,7 @@
   }
 </script>
 
-<section class="bg-white py-0">
+<section class="py-6 px-6 dark:bg-gray-900 bg-gray-50 h-full">
   <div class="mt-2 mb-2 ml-2 text-sm">
     Keterangan nomor bayar : <br />
   </div>

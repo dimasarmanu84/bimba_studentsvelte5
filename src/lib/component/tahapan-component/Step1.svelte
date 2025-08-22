@@ -26,9 +26,9 @@
   });
 </script>
 
-<div class="justify-left flex w-full text-[16px] max-[500px]:w-full">
-  <div class="w-full border border-blue-300 bg-white p-4 max-[500px]:p-0">
-    <div class="bg-white p-4 text-left text-sm text-gray-500 max-[500px]:w-[100%]" style="margin: auto;">
+<div class="justify-left flex w-full text-[16px] max-[500px]:w-full bg-gray-900">
+  <div class="w-full border border-blue-300 bg-white p-4 max-[500px]:p-0 ">
+    <div class="bg-gray-50 p-4 text-left text-sm text-gray-500 max-[500px]:w-[100%]" style="margin: auto;">
       Yang terhormat {data?.studentdata?.student_name},
       <br />
       <br />
@@ -41,28 +41,29 @@
       <br />
       <table class="w-full border-collapse border">
         <tbody>
-          <tr>
-            <td class="pt-2 pl-2" style="min-width:120px">Nama</td>
-            <td class="pr-2 pl-2">:</td>
-            <td class="pr-2">{data?.studentdata?.student_name} </td>
+          <tr class="hover:bg-gray-100">
+            <td class="pt-2 pl-2 text-left text-xs text-gray-500" style="min-width:120px">Nama</td>
+            <td class="pr-2 pl-2  text-left text-xs text-gray-500">:</td>
+            <td class="pr-2  text-left text-xs text-gray-500">{data?.studentdata?.student_name} </td>
           </tr>
-          <tr>
-            <td class="pr-2 pl-2">Bank</td>
-            <td class="pr-2 pl-2">:</td>
-            <td>BSI (Bank Syariah Indonesia)</td>
+          <tr class="hover:bg-gray-100">
+            <td class="pr-2 pl-2  text-left text-xs text-gray-500">Bank</td>
+            <td class="pr-2 pl-2  text-left text-xs text-gray-500">:</td>
+            <td class=" text-left text-xs text-gray-500">BSI (Bank Syariah Indonesia)</td>
           </tr>
-          <tr>
-            <td class="pr-2 pl-2">Nomor Pembayaran</td>
-            <td class="pr-2 pl-2">:</td>
-            <td>01{data?.studentdata?.registration_number}</td>
+          <tr class="hover:bg-gray-100">
+            <td class="pr-2 pl-2 text-left text-xs text-gray-500">Nomor Pembayaran</td>
+            <td class="pr-2 pl-2 text-left text-xs text-gray-500">:</td>
+            <td class=" text-left text-xs text-gray-500">01{data?.studentdata?.registration_number}</td>
           </tr>
-          <tr>
-            <td class="pr-2 pb-2 pl-2">Total Bayar</td>
-            <td class="pr-2 pl-2">:</td>
-            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(data?.studentdata?.bill_amount)}</td>
+          <tr class="hover:bg-gray-100">
+            <td class="pr-2 pb-2 pl-2 text-gray-500">Total Bayar</td>
+            <td class="pr-2 pl-2 text-gray-500">:</td>
+            <td class="text-gray-500">{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(data?.studentdata?.bill_amount)}</td>
           </tr>
         </tbody>
       </table>
+
       <br />
       {@html tahapancontent?.registrationcontent_text.replace('{nomor_pembayaran}', data?.studentdata?.registration_number)}
       <!--
@@ -75,69 +76,5 @@
 </div>
 
 <style media="screen">
-  .payment ul {
-    list-style-type: none;
-  }
-
-  .payment li {
-    display: inline-block;
-    border: 1px solid rgb(221, 221, 221);
-  }
-
-  input[type='radio'][id^='cb'] {
-    display: none;
-  }
-
-  .radiocheck {
-    border: 1px solid #fff;
-    padding: 10px;
-    display: block;
-    position: relative;
-    margin: 10px;
-    cursor: pointer;
-  }
-
-  .radiocheck:before {
-    background-color: white;
-    color: white;
-    content: ' ';
-    display: block;
-    border-radius: 50%;
-    border: 1px solid grey;
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    width: 25px;
-    height: 25px;
-    text-align: center;
-    line-height: 28px;
-    transition-duration: 0.4s;
-    transform: scale(0);
-  }
-
-  .radiocheck:hover {
-    background-color: rgb(99, 212, 139);
-    font-size: 18px;
-  }
-
-  .radiocheck img {
-    height: 100px;
-    width: 100px;
-    transition-duration: 0.2s;
-    transform-origin: 50% 50%;
-    object-fit: contain;
-  }
-
-  :checked + .radiocheck:before {
-    content: '✓';
-    background-color: grey;
-    transform: scale(1);
-  }
-
-  :checked + .radiocheck img {
-    transform: scale(0.9);
-    z-index: -1;
-    background-color: rgb(225, 235, 228);
-    font-size: 18px;
-  }
+ 
 </style>
