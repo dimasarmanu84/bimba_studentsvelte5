@@ -8,7 +8,7 @@
   "TableStyles": {
     "theadClass": "border-y border-gray-200 bg-gray-100 text-xs",
     "thClass": "p-3 pl-2 text-xs last:border-r-1 border-l border-gray-200 text-gray-600 dark:border-0 last:dark:border-0",
-    "trClass": "border-b last:border-b-0 bg-white text-base border-gray-300",
+    "trClass": "border-b last:border-b-0  text-base border-gray-300",
     "tdClass": "align-top p-2 pl-2 text-xs",
     "tdCenterClass": "align-top p-2 text-xs text-center",
     "tdRightClass": "align-top p-2 pr-2 text-xs text-right",

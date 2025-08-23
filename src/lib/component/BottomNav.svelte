@@ -1,12 +1,12 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
-  
+
   interface Props {
     onbottomnavclick?: (detail: { param: string }) => void
   }
 
   let { onbottomnavclick }: Props = $props()
-  
+
   // Simple active state tracking
   let activeMenu = $state('home')
 
@@ -24,33 +24,21 @@
 </script>
 
 <div class="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 transform">
-  <div class="glass-card rounded-full bg-white px-6 py-2 shadow-2xl">
+  <div class="rounded-full  px-6 py-2 shadow-2xl">
     <div class="flex items-center space-x-8">
       <!-- Home Button -->
-      <button 
-        onclick={() => onClickMenu('home')} 
-        aria-label="Home" 
-        class="group rounded-full p-3 text-white shadow-lg transition-all duration-200 {activeMenu === 'home' ? 'bg-gradient-to-r from-blue-500 to-blue-600 scale-105' : 'bg-gray-400 hover:bg-blue-500'}"
-      >
-        <i class="fas fa-home text-lg transition-transform group-hover:scale-110"></i>
+      <button onclick={() => onClickMenu('home')} aria-label="Home" class="group rounded-full p-2 text-white shadow-lg transition-all duration-200 {activeMenu === 'home' ? 'bg-gradient-to-r from-purple-500 to-blue-600 scale-105' : 'bg-gray-400 hover:from-blue-500 hover:to-purple-600'}">
+        <i class="fas fa-home text-lg transition-transform group-hover:scale-120"></i>
       </button>
 
       <!-- Tagihan Button -->
-      <button 
-        onclick={() => onClickMenu('tagihan')} 
-        aria-label="Tagihan" 
-        class="group rounded-full p-3 transition-all duration-200 {activeMenu === 'tagihan' ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg scale-105' : 'text-gray-600 hover:bg-gray-100 hover:text-blue-600'}"
-      >
-        <i class="fas fa-receipt text-lg transition-transform group-hover:scale-110"></i>
+      <button onclick={() => onClickMenu('tagihan')} aria-label="Tagihan" class="group rounded-full p-3 transition-all duration-200 {activeMenu === 'tagihan' ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg scale-105' : 'text-gray-600 hover:bg-gray-100 hover:from-blue-500 hover:to-purple-600'}">
+        <i class="fas fa-receipt text-lg transition-transform group-hover:scale-120"></i>
       </button>
 
       <!-- Logout Button (always inactive style) -->
-      <button 
-        onclick={() => onClickMenu('logout')} 
-        aria-label="Logout" 
-        class="group rounded-full p-3 text-gray-600 transition-all duration-200 hover:bg-red-50 hover:text-red-600 hover:scale-105"
-      >
-        <i class="fas fa-sign-out-alt text-lg transition-transform group-hover:scale-110"></i>
+      <button onclick={() => onClickMenu('logout')} aria-label="Logout" class="group rounded-full p-3 text-gray-600 transition-all duration-200 hover:bg-red-50 hover:text-red-600 hover:scale-105">
+        <i class="fas fa-sign-out-alt text-lg transition-transform group-hover:scale-120"></i>
       </button>
     </div>
   </div>

@@ -6,7 +6,7 @@
 
 <!-- Header with Wave Background -->
 <div class="wave-bg relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20"></div>
+  <div class="absolute inset-0 bg-gradient-to-r to-white via-indigo-400 from-purple-600"></div>
   <nav class="relative z-10 px-4 py-6">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-x-6">

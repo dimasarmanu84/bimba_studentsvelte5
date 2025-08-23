@@ -211,7 +211,40 @@
     <button class="flex"><h1 class="w-full text-xl font-semibold text-white">INFORMASI TAGIHAN</h1></button>
   </div>
   
-    <Tagihan pageData={data.useraccess} formData={data.studentdata}></Tagihan>
+   
+</div>
+
+<div class="relative z-20 -mt-8 px-4 ">
+  <br />
+  <!-- <div class="flex w-full items-center justify-center pt-10 max-[600px]:pt-[50px]">
+    <img src="/images/bismillah-w.png" style="width: 250px;" alt="Bismillah" class="" />
+  </div> -->
+  
+  <br />
+  <!-- Registration Steps - Unique Cards -->
+  <div class="space-y-6 pb-24 ">
+    <!-- 1. Registration Steps -->
+    <div class="glass-card card-tilt relative overflow-hidden rounded-3xl">
+      <div class="relative px-6 py-2 pt-4">
+        <div class="flex items-start gap-x-6">
+          
+          <div class="min-w-0 flex-1">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="mb-2 text-lg font-bold text-gray-800">Tagihan Siswa</h3>
+                <p class="text-sm text-gray-600">Pendaftaran dan Biaya Pendaftaran</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+        <Tagihan pageData={data.useraccess} formData={data.studentdata}></Tagihan>
+    </div>
+   
+    
+  </div>
+
 </div>
 {/if}
 <!-- Floating Bottom Navigation -->

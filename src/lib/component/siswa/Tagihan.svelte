@@ -1,8 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { AngleDownOutline } from 'flowbite-svelte-icons';
+  import { AngleDownOutline, AngleUpOutline } from 'flowbite-svelte-icons';
   import { onMount } from 'svelte';
   import { slide } from 'svelte/transition';
+  import { TableStyles } from '$lib/Constant.json';
   import { getallbillstudentamount, getbillbystudentyear, getbillpayment, getbillstudent } from './DataComponent';
   export let pageData: any;
   export let formData: Record<string, string> = {};
@@ -77,33 +78,35 @@
   }
 </script>
 
-<section class="py-6 px-6 dark:bg-gray-900 bg-gray-50 h-full">
+<div class="relative z-20 mt-6 px-4">
+
+  
   <div class="mt-2 mb-2 ml-2 text-sm">
     Keterangan nomor bayar : <br />
   </div>
-  <table class="w-full border-b border-gray-200">
+  <table class="w-full border-b border-gray-200 hover:bg-gray-10">
     <thead>
-      <tr class="border-b bg-white last:border-b-0">
-        <td class="w-[40%] p-2 text-sm">Registrasi</td>
-        <td class="w-[1px]">:</td>
-        <td class="p-2 text-sm">
+      <tr class="{TableStyles.trClass}">
+        <td class="{TableStyles.trClass} text-xs text-gray-800 w-30">Registrasi</td>
+        <td class="{TableStyles.trClass} text-gray-800">:</td>
+        <td class="{TableStyles.trClass} text-xs text-gray-800">
           01{formData.registration_number}
         </td>
       </tr>
     </thead>
     <tbody>
       {#if formData.student_nisl != ''}
-        <tr class="border-b border-gray-200 bg-white last:border-b-0">
-          <td class="p-2 text-sm">Uang Pangkal</td>
-          <td>:</td>
-          <td class="p-2 text-sm">
+        <tr class="{TableStyles.trClass}">
+          <td class="{TableStyles.trClass}" >Uang Pangkal</td>
+          <td class="{TableStyles.trClass}">:</td>
+          <td class="{TableStyles.trClass}">
             02{formData.student_nisl.replace(/\./g, '')}
           </td>
         </tr>
-        <tr class="border-b bg-white last:border-b-0">
-          <td class="p-2 text-sm">SPP</td>
-          <td>:</td>
-          <td class="p-2 text-sm">03{formData.student_nisl.replace(/\./g, '')} </td>
+        <tr class="{TableStyles.trClass}">
+          <td class="{TableStyles.trClass}">SPP</td>
+          <td class="{TableStyles.trClass}">:</td>
+          <td class="{TableStyles.trClass}">03{formData.student_nisl.replace(/\./g, '')} </td>
         </tr>
       {/if}
     </tbody>
@@ -111,27 +114,28 @@
 
   <br />
 
-  <table class="w-full border-b border-gray-200">
+  <table class="w-full border-b border-gray-200 hover:bg-gray-10">
     <tbody>
-      <tr class="border-b border-gray-200 bg-white last:border-b-0">
-        <td class="w-[40%] p-2 text-sm">Total Tagihan</td>
-        <td class="w-[1px]">:</td>
-        <td class="p-2 text-sm">
+      <tr class="{TableStyles.trClass} p-2">
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2 w-30">Total Tagihan</td>
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2">:</td>
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2">
           Rp
           {bill_amount}
         </td>
       </tr>
-      <tr class="border-b border-gray-200 bg-white last:border-b-0">
-        <td class="p-2 text-sm">Tagihan Dibayar</td>
-        <td>:</td>
-        <td class="p-2 text-sm">
+      
+      <tr class="{TableStyles.trClass} p-2">
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2 w-30">Tagihan Dibayar</td>
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2">:</td>
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2">
           Rp {paid_amount}
         </td>
       </tr>
-      <tr class="border-b bg-white last:border-b-0">
-        <td class="p-2 text-sm">Sisa Tagihan</td>
-        <td>:</td>
-        <td class="p-2 text-sm"
+      <tr class="{TableStyles.trClass} p-2">
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2 w-30">Sisa Tagihan</td>
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2"> :</td>
+        <td class="{TableStyles.trClass} text-xs text-gray-800 p-2"
           >Rp
           {bill_amount_remind}
         </td>
@@ -141,145 +145,161 @@
   <br />
 
   <br />
-  <div class="mt-2 mb-2 flex text-sm">
-    Klik tombol <AngleDownOutline class="border-white-700 focus-within:ring-primary-300 mr-2 ml-2 h-4 w-4 rounded-full border bg-orange-400 p-1 text-white" strokeWidth="3.3" size="xs" /> untuk melihat
+  <div class="mt-2 mb-2 flex text-xs text-gray-800">
+    Klik tombol <AngleDownOutline class="text-white border-white-700 focus-within:ring-primary-300 mr-2 ml-2 h-4 w-4 rounded-full border bg-orange-400 p-1 " strokeWidth="3.3" size="xs" /> untuk melihat
     detail informasi
   </div>
   <div class="clearfixrelative overflow-x-auto pb-10">
-    <table class="w-full min-w-[800px]">
+    <table class="w-full min-w-[800px] bg-white border border-gray-300 rounded-lg shadow-sm">
       <thead>
-        <tr class="border-b bg-white last:border-b-0">
-          <td class="w-[50px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: #dce6f5;border-color: #c8d8ef;">No</td>
-          <td class="border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: #dce6f5;border-color: #c8d8ef;">Periode</td>
-          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: #dce6f5;border-color: #c8d8ef;">Total</td>
-          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: #dce6f5;border-color: #c8d8ef;">Dibayar</td>
-          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: #dce6f5;border-color: #c8d8ef;">Sisa</td>
+        <tr class="bg-gray-100 border-b border-gray-300">
+          <td class="w-[50px] border-r border-gray-300 p-3 text-center text-xs font-semibold text-gray-800">No</td>
+          <td class="w-[50px] border-r border-gray-300 p-3 text-center text-xs font-semibold text-gray-800"></td>
+          <td class="border-r border-gray-300 p-3 text-center text-xs font-semibold text-gray-800">Periode</td>
+          <td class="w-[200px] border-r border-gray-300 p-3 text-center text-xs font-semibold text-gray-800">Total</td>
+          <td class="w-[200px] border-r border-gray-300 p-3 text-center text-xs font-semibold text-gray-800">Dibayar</td>
+          <td class="w-[200px] p-3 text-center text-xs font-semibold text-gray-800">Sisa</td>
         </tr>
       </thead>
       <tbody>
         {#if listbill}
           {#each listbill as row, i}
-            <tr class="border-b bg-white last:border-b-0">
-              <td class="border-r border-l p-2 text-center text-sm">{i + no}</td>
-              <td class="flex cursor-pointer border-r border-l p-2 pt-2 text-center text-sm" on:click={() => ShowBill(i, row.student_id)}
-                >{formData.period_year}
-                <AngleDownOutline class="border-white-700 focus-within:ring-primary-300 ml-2 h-4 w-4 rounded-full border bg-orange-400 p-1 text-white" strokeWidth="3.3" size="xs" /><Tooltip
-                  class="z-10 text-sm">Lihat Tagihan</Tooltip
-                ></td
-              >
-              <td class="w-[200px] border-r border-l p-2 text-right text-sm"
-                >{new Intl.NumberFormat('en-US', {
+            <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-50 transition-colors">
+              <td class="border-r border-gray-200 p-3 text-center text-sm text-gray-800">{i + no}</td>
+              <td class="flex cursor-pointer border-r border-gray-200 p-3 text-center text-sm items-center justify-center space-x-2 hover:bg-blue-50" on:click={() => ShowBill(i, row.student_id)}>
+               
+                
+                {#if openRowBill === i}
+                  <AngleUpOutline class="border-white-700 focus-within:ring-primary-300 mr-2 ml-2 h-4 w-4 rounded-full border bg-orange-400 p-1 text-white" strokeWidth="3.3" size="xs" />
+                {:else}
+                  <AngleDownOutline class="border-white-700 focus-within:ring-primary-300 mr-2 ml-2 h-4 w-4 rounded-full border bg-orange-400 p-1 text-white" strokeWidth="3.3" size="xs" />
+                {/if}
+                <Tooltip class="z-10 text-xs">Lihat {row.costpackage_name}</Tooltip>
+              </td>
+              <td class="border-r border-gray-200 p-3 text-center text-sm text-gray-800">{formData.period_year} </td>
+              <td class="border-r border-gray-200 p-3 text-right text-sm text-gray-800 font-medium">
+                {new Intl.NumberFormat('en-US', {
                   style: 'decimal',
                   minimumFractionDigits: 0
                 }).format(row.bill_amount.toLocaleString('en'))}
               </td>
-              <td class="w-[200px] border-r border-l p-2 text-right text-sm"
-                >{new Intl.NumberFormat('en-US', {
+              <td class="border-r border-gray-200 p-3 text-right text-sm text-green-600 font-medium">
+                {new Intl.NumberFormat('en-US', {
                   style: 'decimal',
                   minimumFractionDigits: 0
-                }).format(row.paid_amount.toLocaleString('en'))}</td
-              >
-              <td class="w-[200px] border-r border-l p-2 text-right text-sm"
-                >{new Intl.NumberFormat('en-US', {
+                }).format(row.paid_amount.toLocaleString('en'))}
+              </td>
+              <td class="p-3 text-right text-sm text-red-600 font-medium">
+                {new Intl.NumberFormat('en-US', {
                   style: 'decimal',
                   minimumFractionDigits: 0
-                }).format(row.bill_amount_remind.toLocaleString('en'))}</td
-              >
+                }).format(row.bill_amount_remind.toLocaleString('en'))}
+              </td>
             </tr>
-
+    
             {#if openRowBill === i}
-              <tr class="pb-2">
-                <td colspan="10" class="p-0">
-                  <div class="mb-3 pt-2 pl-10" transition:slide={{ duration: 300, axis: 'y' }}>
+              <tr>
+                <td colspan="5" class="p-0">
+                  <div class="m-4 bg-gray-50 border border-gray-200 " transition:slide={{ duration: 300, axis: 'y' }}>
                     <table class="w-full">
                       <thead>
-                        <tr class="border-b bg-white last:border-b-0">
-                          <td colspan="10" class="border-b border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: #dce6f5;border-color: #c8d8ef;">TAGIHAN</td>
+                        <tr class="bg-gray-50 border-b border-blue-200">
+                          <td colspan="7" class="p-3 text-center text-sm font-bold text-gray-800 uppercase tracking-wide">
+                            Tagihan
+                          </td>
                         </tr>
-                        <tr class="border-b bg-white last:border-b-0">
-                          <td class="w-[50px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(247 246 213);border-color: #c8d8ef;">No</td>
-                          <td class="border-r border-l p-2 text-center text-sm" style="color: #0b2e5f; background-color: rgb(247, 246, 213); border-color: #c8d8ef; width: 400px;"> Nama Tagihan </td>
-                          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(247 246 213);border-color: #c8d8ef;">Tanggal</td>
-                          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(247 246 213);border-color: #c8d8ef;">Bulan</td>
-                          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(247 246 213);border-color: #c8d8ef;">Total Tagihan</td>
-                          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(247 246 213);border-color: #c8d8ef;">Dibayar</td>
-                          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(247 246 213);border-color: #c8d8ef;">Sisa</td>
+                        <tr class="bg-yellow-50 border-b border-yellow-200">
+                          <td class="w-[50px] border-r border-yellow-200 p-2 text-center text-xs font-semibold text-gray-800">No</td>
+                          <td class="border-r border-yellow-200 p-2 text-center text-xs font-semibold text-gray-800" style="width: 400px;">Nama Tagihan</td>
+                          <td class="w-[150px] border-r border-yellow-200 p-2 text-center text-xs font-semibold text-gray-800">Tanggal</td>
+                          <td class="w-[150px] border-r border-yellow-200 p-2 text-center text-xs font-semibold text-gray-800">Bulan</td>
+                          <td class="w-[150px] border-r border-yellow-200 p-2 text-center text-xs font-semibold text-gray-800">Total Tagihan</td>
+                          <td class="w-[150px] border-r border-yellow-200 p-2 text-center text-xs font-semibold text-gray-800">Dibayar</td>
+                          <td class="w-[150px] p-2 text-center text-xs font-semibold text-gray-800">Sisa</td>
                         </tr>
                       </thead>
                       <tbody>
                         {#if liststudentbill}
                           {#each liststudentbill as rowitem, o}
-                            <tr class="border-b bg-white last:border-b-0">
-                              <td class="border-r border-l p-2 text-center text-sm">{o + no}</td>
+                            <tr class="border-b border-gray-200 bg-gray-50 hover:bg-yellow-25 transition-colors">
+                              <td class="border-r border-gray-200 p-2 text-center text-sm text-gray-800">{o + no}</td>
                               {#if rowitem.paid_amount > 0}
-                                <td class="flex cursor-pointer border-r border-l p-2 pt-2 text-sm" on:click={() => OpenPayment(o, rowitem.studentbill_id)}
-                                  >{rowitem.costgroup_name}
+                                <td class="flex cursor-pointer border-r border-gray-200 p-2 text-xs items-center space-x-2 hover:bg-green-50" 
+                                    on:click={() => OpenPayment(o, rowitem.studentbill_id)}>
+                                  <span class="text-gray-800">{rowitem.costgroup_name}</span>
                                   <AngleDownOutline
-                                    class="border-white-700 focus-within:ring-primary-300 ml-2 h-4 w-4 rounded-full border bg-orange-400 p-1 text-white"
+                                    class="h-4 w-4 rounded-full border bg-orange-400 p-1 text-white hover:bg-orange-500 transition-colors"
                                     strokeWidth="3.3"
                                     size="xs"
-                                  /><Tooltip class="z-10 text-sm">Lihat Pembayaran</Tooltip></td
-                                >
+                                  />
+                                  <Tooltip class="z-10 text-sm">Lihat Pembayaran</Tooltip>
+                                </td>
                               {:else}
-                                <td class="border-r border-l p-2 text-sm">{rowitem.costgroup_name} </td>
+                                <td class="border-r border-gray-200 p-2 text-sm text-gray-800">{rowitem.costgroup_name}</td>
                               {/if}
-                              <td class="w-[200px] border-r border-l p-2 text-center text-sm">{formatDate(rowitem.bill_date).replace('00:00:00', '')}</td>
-                              <td class="w-[200px] border-r border-l p-2 text-center text-sm">{rowitem.month_name}</td>
-                              <td class="w-[200px] border-r border-l p-2 text-right text-sm"
-                                >{new Intl.NumberFormat('en-US', {
+                              <td class="border-r border-gray-200 p-2 text-center text-sm text-gray-800">
+                                {formatDate(rowitem.bill_date).replace('00:00:00', '')}
+                              </td>
+                              <td class="border-r border-gray-200 p-2 text-center text-sm text-gray-800">{rowitem.month_name}</td>
+                              <td class="border-r border-gray-200 p-2 text-right text-sm text-gray-800 font-medium">
+                                {new Intl.NumberFormat('en-US', {
                                   style: 'decimal',
                                   minimumFractionDigits: 0
-                                }).format(rowitem.bill_amount.toLocaleString('en'))}</td
-                              >
-                              <td class="w-[200px] border-r border-l p-2 text-right text-sm"
-                                >{new Intl.NumberFormat('en-US', {
+                                }).format(rowitem.bill_amount.toLocaleString('en'))}
+                              </td>
+                              <td class="border-r border-gray-200 p-2 text-right text-sm text-green-600 font-medium">
+                                {new Intl.NumberFormat('en-US', {
                                   style: 'decimal',
                                   minimumFractionDigits: 0
-                                }).format(rowitem.paid_amount.toLocaleString('en'))}</td
-                              >
-                              <td class="w-[200px] border-r border-l p-2 text-right text-sm"
-                                >{new Intl.NumberFormat('en-US', {
+                                }).format(rowitem.paid_amount.toLocaleString('en'))}
+                              </td>
+                              <td class="p-2 text-right text-sm text-red-600 font-medium">
+                                {new Intl.NumberFormat('en-US', {
                                   style: 'decimal',
                                   minimumFractionDigits: 0
-                                }).format(rowitem.bill_amount_remind.toLocaleString('en'))}</td
-                              >
+                                }).format(rowitem.bill_amount_remind.toLocaleString('en'))}
+                              </td>
                             </tr>
-
+    
                             {#if openRowPayment === o && listbillpayment}
-                              <tr class="pb-2">
-                                <td colspan="10" class="p-0">
-                                  <div class="mt-2 mb-10 pt-2 pl-10" transition:slide={{ duration: 300, axis: 'y' }}>
-                                    <table class="w-full border-b">
+                              <tr>
+                                <td colspan="7" class="p-0">
+                                  <div class="m-4 bg-green-50 border border-green-200 rounded-lg" transition:slide={{ duration: 300, axis: 'y' }}>
+                                    <table class="w-full">
                                       <thead>
-                                        <tr class="border-b bg-white last:border-b-0">
-                                          <td colspan="10" class="border-b border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(238 242 239);border-color: #c8d8ef;"
-                                            >PEMBAYARAN</td
-                                          >
+                                        <tr class="bg-green-100 border-b border-green-200">
+                                          <td colspan="4" class="p-3 text-center text-sm font-bold text-green-800 uppercase tracking-wide">
+                                            Pembayaran
+                                          </td>
                                         </tr>
-                                        <tr class="border-b bg-white last:border-b-0">
-                                          <td class="border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(206 251 203);border-color: #c8d8ef;">Tanggal Bayar</td>
-                                          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(206 251 203);border-color: #c8d8ef;">Tipe</td>
-                                          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(206 251 203);border-color: #c8d8ef;"
-                                            >ID Transaksi</td
-                                          >
-                                          <td class="w-[200px] border-r border-l p-2 text-center text-sm" style="color: #0b2e5f;background-color: rgb(206 251 203);border-color: #c8d8ef;">Total</td>
+                                        <tr class="bg-green-50 border-b border-green-200">
+                                          <td class="border-r border-green-200 p-2 text-center text-xs font-semibold text-gray-700">Tanggal Bayar</td>
+                                          <td class="w-[200px] border-r border-green-200 p-2 text-center text-xs font-semibold text-gray-700">Tipe</td>
+                                          <td class="w-[200px] border-r border-green-200 p-2 text-center text-xs font-semibold text-gray-700">ID Transaksi</td>
+                                          <td class="w-[200px] p-2 text-center text-xs font-semibold text-gray-700">Total</td>
                                         </tr>
                                       </thead>
                                       <tbody>
                                         {#if listbillpayment}
-                                          {#each listbillpayment as rowpayment, o}
-                                            <tr class="border-b bg-white last:border-b-0">
-                                              <td class="w-[200px] border-r border-l p-2 text-center text-sm">{formatDate(rowpayment.trans_time)}</td>
-                                              <td class="w-[200px] border-r border-l p-2 text-center text-sm">
-                                                {rowpayment.payment_request_id == null ? 'Bank' : rowpayment.payment_request_id == '' ? 'Cash' : 'Bank'}</td
-                                              >
-                                              <td class="w-[200px] border-r border-l p-2 text-center text-sm"> {rowpayment.payment_request_id}</td>
-                                              <td class="w-[200px] border-r border-l p-2 text-right text-sm"
-                                                >{new Intl.NumberFormat('en-US', {
+                                          {#each listbillpayment as rowpayment, p}
+                                            <tr class="border-b border-green-200 bg-gray-50 hover:bg-green-25 transition-colors last:border-b-0">
+                                              <td class="border-r border-green-200 p-2 text-center text-xs text-gray-600">
+                                                {formatDate(rowpayment.trans_time)}
+                                              </td>
+                                              <td class="border-r border-green-200 p-2 text-center text-xs">
+                                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {rowpayment.payment_request_id == null || rowpayment.payment_request_id == '' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'}">
+                                                  {rowpayment.payment_request_id == null ? 'Bank' : rowpayment.payment_request_id == '' ? 'Cash' : 'Bank'}
+                                                </span>
+                                              </td>
+                                              <td class="border-r border-green-200 p-2 text-center text-xs text-gray-600 font-mono">
+                                                {rowpayment.payment_request_id || '-'}
+                                              </td>
+                                              <td class="p-2 text-right text-xs text-green-600 font-bold">
+                                                {new Intl.NumberFormat('en-US', {
                                                   style: 'decimal',
                                                   minimumFractionDigits: 0
-                                                }).format(rowpayment.paid_amount.toLocaleString('en'))}</td
-                                              >
+                                                }).format(rowpayment.paid_amount.toLocaleString('en'))}
+                                              </td>
                                             </tr>
                                           {/each}
                                         {/if}
@@ -293,8 +313,8 @@
                         {/if}
                       </tbody>
                     </table>
-                  </div></td
-                >
+                  </div>
+                </td>
               </tr>
             {/if}
           {/each}
@@ -302,4 +322,4 @@
       </tbody>
     </table>
   </div>
-</section>
+</div>
