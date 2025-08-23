@@ -20,7 +20,7 @@
 </script>
 
 <div class="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 transform">
-  <div class="glass-card rounded-full bg-white px-6 py-2 shadow-2xl">
+  <div class="glass-card rounded-full  px-6 py-2 shadow-2xl">
     <div class="flex items-center space-x-8">
 
 

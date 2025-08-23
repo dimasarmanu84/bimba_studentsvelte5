@@ -6,7 +6,7 @@
 
 <!-- Header with Wave Background -->
 <div class="wave-bg relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-r to-white via-indigo-400 from-purple-600"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-white via-indigo-400 to-purple-600  backdrop-blur-sm border-b"></div>
   <nav class="relative z-10 px-4 py-6">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-x-6">
@@ -17,8 +17,8 @@
           </div>
         </div>
         <div>
-          <h1 class="text-xl font-bold text-white drop-shadow-lg md:text-2xl">{AplicationName}</h1>
-          <p class="text-sm text-purple-100">{AplicationName}</p>
+          <h1 class="text-xl font-bold text-purple-800 drop-shadow-lg md:text-2xl">{AplicationName}</h1>
+          <p class="text-sm text-purple-800">{AplicationName}</p>
         </div>
       </div>
       <div class="flex items-center space-x-3">

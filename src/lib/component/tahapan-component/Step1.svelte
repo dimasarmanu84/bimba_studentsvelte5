@@ -27,7 +27,7 @@
 </script>
 
 <div class="justify-left flex w-full text-[16px] max-[500px]:w-full bg-gray-900">
-  <div class="w-full border border-blue-300 bg-white p-4 max-[500px]:p-0 ">
+  <div class="w-full border border-blue-300 bg-gray-50 p-4 max-[500px]:p-0 ">
     <div class="bg-gray-50 p-4 text-left text-sm text-gray-500 max-[500px]:w-[100%]" style="margin: auto;">
       Yang terhormat {data?.studentdata?.student_name},
       <br />

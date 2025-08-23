@@ -74,16 +74,13 @@
 
 
 {#if selected === 'home'}
-<div class="relative z-20 -mt-8 px-4 ">
+<div class="relative z-20 mt-0 px-4 bg-gray-100 bg-opacity-50">
   <br />
   <!-- <div class="flex w-full items-center justify-center pt-10 max-[600px]:pt-[50px]">
     <img src="/images/bismillah-w.png" style="width: 250px;" alt="Bismillah" class="" />
   </div> -->
-  <div class="flex w-full items-center justify-center pt-10 text-center ">
-    <button class="flex"><h1 class="w-full text-xl font-semibold text-white">PENDAFTARAN</h1></button>
-  </div>
   <div class="flex w-full items-center justify-center p-3 pt-5 text-center">
-    <button class="flex"><h1 class="w-full text-xl font-semibold text-white uppercase">{data?.useraccess?.institution_name}</h1></button>
+    <button class="flex"><h1 class="w-full text-xl font-semibold text-gray-800 uppercase">{data?.useraccess?.institution_name}</h1></button>
   </div>
   <br />
   <!-- Registration Steps - Unique Cards -->
@@ -205,20 +202,18 @@
 {/if}
 
 {#if selected === 'tagihan'}
-<div class="relative z-20 mt-6 px-4">
+<div class="relative z-20 mt-0 px-4 bg-gradient-to-b from-purple-600  to-purple-100">
 
-  <div class="flex w-full items-center justify-center pt-6 text-center ">
-    <button class="flex"><h1 class="w-full text-xl font-semibold text-white">INFORMASI TAGIHAN</h1></button>
-  </div>
+  
   
    
 </div>
 
-<div class="relative z-20 -mt-8 px-4 ">
+<div class="relative z-20 mt-0 px-4 bg-gray-100 bg-opacity-50">
   <br />
-  <!-- <div class="flex w-full items-center justify-center pt-10 max-[600px]:pt-[50px]">
-    <img src="/images/bismillah-w.png" style="width: 250px;" alt="Bismillah" class="" />
-  </div> -->
+  <div class="flex w-full items-center justify-center pt-6 text-center ">
+    <button class="flex"><h1 class="w-full text-xl font-semibold text-gray-800">INFORMASI TAGIHAN</h1></button>
+  </div>
   
   <br />
   <!-- Registration Steps - Unique Cards -->

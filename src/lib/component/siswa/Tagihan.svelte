@@ -199,7 +199,7 @@
     
             {#if openRowBill === i}
               <tr>
-                <td colspan="5" class="p-0">
+                <td colspan="6" class="p-0 bg-gray-100 bg-opacity-50 ">
                   <div class="m-4 bg-gray-50 border border-gray-200 " transition:slide={{ duration: 300, axis: 'y' }}>
                     <table class="w-full">
                       <thead>

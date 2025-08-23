@@ -154,7 +154,7 @@
           </div>
         </div>
         <div class="hidden sm:flex items-center space-x-4">
-          <span class="text-sm text-gray-600">Butuh bantuan?</span>
+          <span class="text-sm text-white font-semibold hover:text-gray-800">Butuh bantuan?</span>
           <a href="https://wa.me/083808872110" target="_blank" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -233,7 +233,7 @@
 
       <!-- Right Column - Login Form -->
       <div class="lg:pl-30 lg:w-2/2">
-        <div class="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/20 p-8">
+        <div class="bg-gray-100 bg-opacity-50/80 backdrop-blur-sm rounded-lg shadow-sm border border-white/20 p-8">
           <div class="text-center space-y-2 mb-8">
             <h2 class="text-sm font-bold text-gray-900">Masuk ke Akun Anda</h2>
             <p class="text-gray-600">Login untuk melanjutkan ke dashboard siswa</p>
@@ -241,13 +241,13 @@
 
           <form method="POST" action="?/getsession" use:enhance={loginHandler} class="space-y-6">
             <div class="space-y-2">
-              <label for="username" class="text-xs font-medium text-gray-700 flex items-center">
-                <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <label for="username" class="text-xs font-medium text-gray-800 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
                 </svg>
                 NIK (Nomor Induk Kependudukan)
               </label>
-              <input type="text" id="username" name="username" class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white/50" placeholder="Masukkan NIK Anda" autocomplete="username" />
+              <input type="text" id="username" name="username" class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50/50" placeholder="Masukkan NIK Anda" autocomplete="username" />
               {#if validations?.data?.errors?.username}
                 <p class="text-sm text-red-600">
                   {validations.data.errors.username}
@@ -256,14 +256,14 @@
             </div>
 
             <div class="space-y-2">
-              <label for="userpassword" class="text-xs font-medium text-gray-700 flex items-center">
-                <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <label for="userpassword" class="text-xs font-medium text-gray-800 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                 </svg>
                 No. Telp (3 Digit Terakhir)
               </label>
               <div class="relative">
-                <input type={showPassword ? 'text' : 'password'} id="userpassword" name="userpassword" class="text-xs w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white/50" placeholder="3 digit terakhir no. telepon" autocomplete="current-password" />
+                <input type={showPassword ? 'text' : 'password'} id="userpassword" name="userpassword" class="text-xs w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50/50" placeholder="3 digit terakhir no. telepon" autocomplete="current-password" />
                 <button type="button" class="absolute inset-y-0 right-0 pr-4 flex items-center" onclick={() => (showPassword = !showPassword)}>
                   <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {#if showPassword}
@@ -324,10 +324,10 @@
 <!-- Registration Modal -->
 {#if showRegistrationModal}
   <div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" transition:fade>
-    <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" transition:slide>
-      <div class="sticky top-0 bg-white rounded-t-2xl border-b border-gray-200 px-6 py-4 z-10">
+    <div class="bg-gray-100 bg-opacity-50 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" transition:slide>
+      <div class="sticky top-0  bg-gradient-to-r from-white via-indigo-400 to-purple-600  backdrop-blur-sm rounded-t-2xl border-b border-gray-200 px-6 py-4 z-10">
         <div class="flex items-center justify-between">
-          <h2 class="text-2xl font-bold text-gray-900">Pendaftaran Siswa Baru</h2>
+          <h2 class="text-lg font-bold text-purple-800">Pendaftaran Siswa Baru</h2>
           <!-- svelte-ignore a11y_consider_explicit_label -->
           <button onclick={closeModal} class="p-2 hover:bg-gray-100 rounded-full transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -337,7 +337,7 @@
         </div>
       </div>
 
-      <div class="p-6">
+      <div class="p-6 bg-gray-100 bg-opacity-50 rounded-b-2xl">
         {#if validations?.data?.error}
           <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl" transition:fade>
             <div class="flex">
@@ -361,13 +361,13 @@
         <form method="POST" action="?/create" use:enhance={submitHandler} class="space-y-6">
           <!-- Institution Selection -->
           <div class="space-y-2">
-            <label class="text-xs font-medium text-gray-700 flex items-center" for="namasekoalh">
-              <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+            <label class="text-xs font-medium text-gray-800 flex items-center" for="namasekoalh">
+              <svg class="w-4 h-4 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h12v8H4V6z" clip-rule="evenodd" />
               </svg>
               Nama Sekolah
             </label>
-            <select name="institution_id" bind:value={selinstitution_id} onchange={onChangeInstitution} class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white">
+            <select name="institution_id" bind:value={selinstitution_id} onchange={onChangeInstitution} class="text-xs text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50 ">
               <option value="">Pilih Nama Sekolah</option>
               {#if filteredinstitution}
                 {#each filteredinstitution as option}
@@ -385,13 +385,13 @@
           <div class="grid sm:grid-cols-2 gap-6">
             <!-- Level Group -->
             <div class="space-y-2">
-              <label for="lembaga" class="text-xs font-medium text-gray-700 flex items-center">
-                <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <label for="lembaga" class="text-xs font-medium text-gray-800 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.84L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.84l-7-3z" />
                 </svg>
                 Lembaga
               </label>
-              <select name="grouplevel_id" bind:value={sellevelgroup_id} class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white">
+              <select name="grouplevel_id" bind:value={sellevelgroup_id} class="text-xs w-full text-gray-800 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50">
                 <option value="">Pilih lembaga</option>
                 {#if data?.dropdowngoruplevel}
                   {#each data.dropdowngoruplevel as option}
@@ -408,13 +408,13 @@
 
             <!-- Level -->
             <div class="space-y-2">
-              <label for="tingkatan" class="text-xs font-medium text-gray-700 flex items-center">
-                <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <label for="tingkatan" class="text-xs font-medium text-gray-800 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
                 </svg>
                 Tingkatan
               </label>
-              <select name="level_id" bind:value={sellevel_id} disabled={disable} class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white disabled:bg-gray-100 disabled:cursor-not-allowed">
+              <select name="level_id" bind:value={sellevel_id} disabled={disable} class="text-gray-800 text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50 disabled:bg-gray-100 disabled:cursor-not-allowed">
                 <option value="">Pilih tingkatan</option>
                 {#each filteredlevel as option}
                   <option value={option.value}>{option.name}</option>
@@ -431,14 +431,14 @@
           <div class="grid sm:grid-cols-2 gap-6">
             <!-- Student Name -->
             <div class="space-y-2">
-              <label for="nama" class="text-sm font-medium text-gray-700 flex items-center">
-                <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <label for="nama" class="text-sm font-medium text-gray-800 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
                 </svg>
                 Nama Calon Siswa Sesuai Akta Kelahiran
               </label>
               <input type="hidden" name="period_year" value={data.registrationperiod?.period_name} />
-              <input type="text" name="student_name" class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white" placeholder="Masukkan nama lengkap" />
+              <input type="text" name="student_name" class="text-xs  text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50" placeholder="Masukkan nama lengkap" />
               {#if validations?.data?.errors?.student_name}
                 <p class="text-xs text-red-600">
                   {validations.data.errors.student_name}
@@ -448,13 +448,13 @@
 
             <!-- NIK -->
             <div class="space-y-2">
-              <label for="nik" class="text-xs font-medium text-gray-700 flex items-center">
-                <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <label for="nik" class="text-xs font-medium text-gray-800 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                 </svg>
                 NIK
               </label>
-              <input type="text" name="username" autocomplete="off" class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white" placeholder="Masukkan NIK 16 digit" />
+              <input type="text" name="username" autocomplete="off" class="text-gray-800 text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50" placeholder="Masukkan NIK 16 digit" />
               {#if validations?.data?.errors?.username}
                 <p class="text-sm text-red-600">
                   {validations.data.errors.username}
@@ -466,14 +466,14 @@
           <div class="grid sm:grid-cols-2 gap-6">
             <!-- Email -->
             <div class="space-y-2">
-              <label for="" class="text-sm font-medium text-gray-700 flex items-center">
-                <svg class="w-4 h-4 mr-2 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+              <label for="" class="text-sm font-medium text-gray-800 flex items-center ">
+                <svg class="w-4 h-4 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
                 Email
               </label>
-              <input type="email" name="student_email" autocomplete="off" class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white" placeholder="Masukkan email aktif" />
+              <input type="email" name="student_email" autocomplete="off" class="text-gray-800 text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50" placeholder="Masukkan email aktif" />
               {#if validations?.data?.errors?.student_email}
                 <p class="text-sm text-red-600">
                   {validations.data.errors.student_email}
@@ -483,7 +483,7 @@
 
             <!-- Phone WhatsApp -->
             <div class="space-y-2">
-              <label for="" class="text-sm font-medium text-gray-700 flex items-center">
+              <label for="" class="text-sm font-medium text-gray-800 flex items-center">
                 <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
@@ -491,7 +491,7 @@
                 </svg>
                 Telepon Aktif Ayah (Support WhatsApp)
               </label>
-              <input type="tel" name="student_father_phonewa" bind:value={student_father_phonewa} oninput={e => allowOnlyDigits(e, 15)} pattern="[0-9]*" class="text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white" placeholder="Contoh: 08123456789" />
+              <input type="tel" name="student_father_phonewa" bind:value={student_father_phonewa} oninput={e => allowOnlyDigits(e, 15)} pattern="[0-9]*" class="text-gray-800 text-xs w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-gray-100 bg-opacity-50" placeholder="Contoh: 08123456789" />
               {#if validations?.data?.errors?.student_father_phonewa}
                 <p class="text-sm text-red-600">
                   {validations.data.errors.student_father_phonewa}
@@ -501,7 +501,7 @@
           </div>
 
           <div class="flex justify-end space-x-4 pt-6 border-t border-gray-200">
-            <button type="button" onclick={closeModal} class="text-xs px-6 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors font-medium"> Batal </button>
+            <button type="button" onclick={closeModal} class="text-xs px-6 py-3 border border-gray-300 text-gray-800 rounded-xl hover:bg-gray-50 transition-colors font-medium"> Batal </button>
             <button type="submit" class="text-xs px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-semibold flex items-center">
               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -553,12 +553,12 @@
   }
 
   /* Glass morphism effect */
-  .bg-white\/80 {
+  .bg-gray-100 bg-opacity-50\/80 {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
 
-  .bg-white\/60 {
+  .bg-gray-100 bg-opacity-50\/60 {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
